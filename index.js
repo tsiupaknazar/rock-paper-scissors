@@ -75,14 +75,12 @@ const showResult = (userChoice, computerChoice) => {
 };
 
 const startCountdown = () => {
-  countdownTextElement.textContent = countdown - 1; //add countdown number to the html
+  countdownTextElement.textContent = countdown - 1;
   countdown -= 1;
 
   if (countdown) {
-    //start the countdown until we reach 0
     setTimeout(() => startCountdown(), 600);
   } else {
-    //select random choice and show it
     const selectedGameChoiceElement = document.querySelector(
       ".gameContent__gameChoice--isActive"
     );
@@ -93,19 +91,17 @@ const startCountdown = () => {
     setTimeout(
       () => gameContentElement.classList.add(`gameContent--revealResult`),
       500
-    ); //delay the final result for half second
+    ); 
 
     countdownTextElement.textContent = "";
-    //set the selected choice style
     gameChoiceComputerElement.classList.add(
       `gameContent__gameChoice--is${randomResult}`
     );
-    //set the selected choice image
     gameChoiceImageElement.setAttribute(
       "src",
       `./assets/icon-${randomResult.toLowerCase()}.svg`
     );
-    countdown = 4; //reset the countdown number
+    countdown = 4; 
   }
 };
 
